@@ -16,6 +16,7 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
+    // .current.value is the user entered value
     const enteredName = nameInputRef.current.value;
     const enteredUserAge = ageInputRef.current.value;
     if (enteredName.trim().length === 0 || enteredUserAge.trim().length === 0) {
@@ -34,10 +35,9 @@ const AddUser = (props) => {
     }
     props.onAddUser(enteredName, enteredUserAge);
 
-    //manipulating DOM directly but rarely do we do this in React
+    //manipulating DOM directly but rarely do we do this in React, here to reset the input fields
     nameInputRef.current.value = "";
     ageInputRef.current.value = "";
-
     // setEnteredUsername("");
     //setEnteredAge("");
   };
